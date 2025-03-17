@@ -13,7 +13,7 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.51.0-jammy
     steps:
-      - uses: check-spelling/gh-program-downloader@v0.0.1
+      - uses: check-spelling-sandbox/refactored-octo-train@perl-json-pp
         with:
           repository: cli/cli
           destination: bin/gh
