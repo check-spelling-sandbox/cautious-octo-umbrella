@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+  push:
+
+concurrency:
+  group: ${{ github.workflow_ref }}
+  cancel-in-progress: true
+
+jobs:
+  regression-test:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.51.0-jammy
+    steps:
+      - uses: check-spelling/gh-program-downloader@v0.0.1
+        with:
+          repository: cli/cli
+          destination: bin/gh
+          file-re: bin/
+
+      - run: bin/gh version
+        
