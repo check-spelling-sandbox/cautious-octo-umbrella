@@ -18,6 +18,7 @@ jobs:
           repository: cli/cli
           destination: bin/gh
           file-re: bin/
+          add-to-path: 1
 
-      - run: bin/gh version
+      - run: gh version
         
